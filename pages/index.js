@@ -32,6 +32,7 @@ export default function Home({ allPostsData }) {
            <Link href="/posts/first-posts">
              <a>this page!</a>
            </Link>
+           this is first-post
         </h1>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
