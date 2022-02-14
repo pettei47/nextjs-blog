@@ -5,8 +5,10 @@ import Link from 'next/link'
 import { getSortedPostsData  } from '../lib/posts'
 import path from 'path'
 import Date from '../components/date'
+import { GetStaticProps } from 'next'
 
-export async function getStaticProps() {
+//export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -15,7 +17,16 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData
+}: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+    filePath: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
@@ -32,6 +43,7 @@ export default function Home({ allPostsData }) {
            <Link href="/posts/first-posts">
              <a>this page!</a>
            </Link>
+           <br />
            this is first-post
         </h1>
       </section>
